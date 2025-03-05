@@ -8,6 +8,10 @@
 }
 
 .logo {
-	text-align: center;
-	margin: 10px;
+  text-align: center;
+  margin: 10px;
+  transition: transform 0.8s ease;
+}
+.logo:hover {
+  transform: scale(1.3);
 }
