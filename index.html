@@ -104,7 +104,6 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="hoverexpand"><a href="https://truevanilla.net/"><strong><em>Home</em></strong></a></li>
-                    <li class="hoverexpand"><a href="https://truevanilla.net/rules"><strong>Rules</strong></a></li>
 		    <li class="hoverexpand"><a href="https://discord.truevanilla.net/"><strong>Discord</strong></a></li>
                 </ul>
             </div>
@@ -135,15 +134,40 @@
 				<div class="copy-notification">IP Copied!</div>
 			    </button>
 		        </div>
-                        <p style="text-align: center;"><strong><br>True Vanilla is not affiliated with Minecraft, Mojang AB, or Microsoft.<br>Minecraft is © Mojang AB 2009-2025.</strong></p>
+                    <p style="text-align: center;"><strong><br>True Vanilla is not affiliated with Minecraft, Mojang AB, or Microsoft.<br>Minecraft is © Mojang AB 2009-2025.</strong></p>
                     </div>
                     <div class="col-md-3">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Support the Server</div>
-                            <div class="panel-body">
-                                <div class="gfm-embed" data-url="https://www.gofundme.com/f/support-true-vanilla/widget/large?sharesheet=manage hero&attribution_id=sl:354f0e7d-bca8-4ff9-b07a-9fcc8f49284d"></div><script defer src="https://www.gofundme.com/static/js/embed.js"></script>
-                            </div>
-                        </div>
+						<div class="panel panel-default">
+							<div class="panel-heading">Who's Online (Discord)</div>
+								<div class="panel-body" id="discord-widget" style="color:#000;">
+									<p>Loading Discord widget...</p>
+								</div>
+							</div>
+							<script>
+							  fetch('https://discord.com/api/guilds/1279143050496442469/widget.json')
+							    .then(res => res.json())
+							    .then(data => {
+							      delete data.channels;
+							
+							      const container = document.getElementById('discord-widget');
+							      container.innerHTML = `
+							        <strong>${data.name}</strong><br>
+							        ${data.presence_count} online<br><br>
+							        <div style="max-height: 200px; overflow-y: auto;">
+							          ${data.members.map(member => `
+							            <div style="display:flex;align-items:center;margin-bottom:6px;">
+							              <img src="${member.avatar_url}" width="24" height="24" style="border-radius:50%;margin-right:8px;">
+							              <span>${member.username}</span>
+							            </div>
+							          `).join('')}
+							        </div>
+							      `;
+							    })
+							    .catch(err => {
+							      console.error('Error loading widget:', err);
+							      document.getElementById('discord-widget').innerHTML = 'Failed to load Discord data.';
+							    });
+							</script>
                     </div>
                 </div>
             </div>
