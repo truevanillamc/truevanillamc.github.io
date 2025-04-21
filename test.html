@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Send Appeal/Alert</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+    input, textarea, button {
+      width: 96%;
+      margin: 10px 0;
+      padding: 8px;
+      font-size: 1em;
+    }
+    button {
+      background: #3399ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .hidden {
+      display: none;
+    }
+    .msg {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Send an alert.</h2>
+    <input id="title" placeholder="Title" required />
+    <textarea id="msg" rows="4" placeholder="Message" required></textarea>
+    <div id="captcha"></div>
+    <input id="captcha-answer" placeholder="CAPTCHA answer" />
+    <button onclick="submitMsg()">submit</button>
+    <div class="msg" id="status"></div>
+  </div>
+  <script>
+	const webhookURL = "https://discord.com/api/webhooks/1363397041308569753/BNG6idn92gwh-CRQsD_15Boz7T_zZ2jAhxxkaLEIgSIcAtGbe1hsoOz-LfUoB4Nqjzcv";
+	const captcha = document.getElementById("captcha");
+    	const answerInput = document.getElementById("captcha-answer");
+
+	let a = Math.floor(Math.random() * 5) + 2;
+	let b = Math.floor(Math.random() * 5) + 2;
+	let operators = ['+', '-', '*'];
+	let operator = operators[Math.floor(Math.random() * operators.length)];
+
+	let question = `${a} ${operator} ${b}`;
+	let correctAnswer;
+
+	switch (operator) {
+	  case '+':
+	    correctAnswer = a + b;
+	    break;
+	  case '-':
+	    correctAnswer = a - b;
+	    break;
+	  case '*':
+	    correctAnswer = a * b;
+	    break;
+	}
+
+	captcha.innerText = `What's ${question}?`;
+
+    function canSend() {
+      let last = localStorage.getItem("lastSent");
+      if (!last) return true;
+      let diff = Date.now() - parseInt(last);
+      return diff >= 3600000; // 1hr, 3600000 = 1000 (a second in miliseconds) * 60 (a minute in seconds) * 60 (a hour in minutes)
+    }
+
+    async function submitMsg() {
+      const title = document.getElementById("title").value;
+      const msg = document.getElementById("msg").value;
+      const answer = parseInt(answerInput.value);
+      const status = document.getElementById("status");
+
+      if (!canSend()) {
+        status.innerText = "⏰ Wait 1 hour before alerting a staff member again.";
+        return;
+      }
+
+      if (answer !== a + b) {
+        status.innerText = "🤨 CAPTCHA wrong?";
+        return;
+      }
+
+      const content = `**${title}**\n${msg}`;
+
+      await fetch(webhookURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ content }),
+      });
+
+      localStorage.setItem("lastSent", Date.now());
+      status.innerText = "✅ Sent.";
+    }
+  </script>
+</body>
+</html>
