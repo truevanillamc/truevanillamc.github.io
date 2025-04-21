@@ -86,36 +86,35 @@
       let diff = Date.now() - parseInt(last);
       return diff >= 3600000; // 1hr, 3600000 = 1000 (a second in miliseconds) * 60 (a minute in seconds) * 60 (a hour in minutes)
     }
-
-    async function submitMsg() {
-      const title = document.getElementById("title").value;
-      const msg = document.getElementById("msg").value;
-      const answer = parseInt(answerInput.value);
-      const status = document.getElementById("status");
-
-      if (!canSend()) {
-        status.innerText = "⏰ Wait 1 hour before alerting a staff member again.";
-        return;
-      }
-
-      if (answer !== a + b) {
-        status.innerText = "🤨 CAPTCHA wrong?";
-        return;
-      }
-
-      const content = `**${title}**\n${msg}`;
-
-      await fetch(webhookURL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ content }),
-      });
-
-      localStorage.setItem("lastSent", Date.now());
-      status.innerText = "✅ Sent.";
-    }
+	async function submitMsg() {
+	  const title = document.getElementById("title").value;
+	  const msg = document.getElementById("msg").value;
+	  const answer = parseInt(answerInput.value);
+	  const status = document.getElementById("status");
+	
+	  if (!canSend()) {
+	    status.innerText = "⏰ Wait 1 hour before alerting a staff member again.";
+	    return;
+	  }
+	
+	  if (answer !== correctAnswer) {
+	    status.innerText = "🤨 CAPTCHA wrong?";
+	    return;
+	  }
+	
+	  const content = `**${title}**\n${msg}`;
+	
+	  await fetch(webhookURL, {
+	    method: "POST",
+	    headers: {
+	      "Content-Type": "application/json",
+	    },
+	    body: JSON.stringify({ content }),
+	  });
+	
+	  localStorage.setItem("lastSent", Date.now());
+	  status.innerText = "✅ Sent.";
+	}
   </script>
 </body>
 </html>
