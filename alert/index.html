@@ -93,8 +93,8 @@
 	  const status = document.getElementById("status");
 
 	  // Remove all "@" symbols from the title and message
-	  title = title.replace(/@/g, "");
-	  msg = msg.replace(/@/g, "");
+	  title = title.replace(/@/g, "[@]");
+	  msg = msg.replace(/@/g, "[@]");
 
 	  if (!canSend()) {
 	    status.innerText = "⏰ Wait 1 hour before alerting a staff member again.";
