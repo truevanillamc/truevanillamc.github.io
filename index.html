@@ -137,37 +137,38 @@
                     <p style="text-align: center;"><strong><br>True Vanilla is not affiliated with Minecraft, Mojang AB, or Microsoft.<br>Minecraft is © Mojang AB 2009-2025.</strong></p>
                     </div>
                     <div class="col-md-3">
-						<div class="panel panel-default">
-							<div class="panel-heading">Who's Online (Discord)</div>
-								<div class="panel-body" id="discord-widget" style="color:#000;">
-									<p>Loading Discord widget...</p>
-								</div>
-							</div>
-							<script>
-							  fetch('https://discord.com/api/guilds/1279143050496442469/widget.json')
-							    .then(res => res.json())
-							    .then(data => {
-							      delete data.channels;
-							
-							      const container = document.getElementById('discord-widget');
-							      container.innerHTML = `
-							        <strong>${data.name}</strong><br>
-							        ${data.presence_count} online<br><br>
-							        <div style="max-height: 200px; overflow-y: auto;">
-							          ${data.members.map(member => `
-							            <div style="display:flex;align-items:center;margin-bottom:6px;">
-							              <img src="${member.avatar_url}" width="24" height="24" style="border-radius:50%;margin-right:8px;">
-							              <span>${member.username}</span>
-							            </div>
-							          `).join('')}
-							        </div>
-							      `;
-							    })
-							    .catch(err => {
-							      console.error('Error loading widget:', err);
-							      document.getElementById('discord-widget').innerHTML = 'Failed to load Discord data.';
-							    });
-							</script>
+						<div class="panel panel-default" style="background-color: #2c2f33; color: #fff; border: none;">
+						  <div class="panel-heading" style="background-color: #23272a; color: #fff;">Who's Online (Discord)</div>
+						  <div class="panel-body" id="discord-widget" style="background-color: #2c2f33; color: #fff; padding: 10px;">
+						    <p>Loading Discord widget...</p>
+						  </div>
+						</div>
+						
+						<script>
+						  fetch('https://discord.com/api/guilds/1279143050496442469/widget.json')
+						    .then(res => res.json())
+						    .then(data => {
+						      delete data.channels;
+						
+						      const container = document.getElementById('discord-widget');
+						      container.innerHTML = `
+						        <strong style="font-size: 16px;">${data.name}</strong><br>
+						        <span style="color: #aaa;">${data.presence_count} online</span><br><br>
+						        <div style="max-height: 250px; overflow-y: auto; padding-right: 5px;">
+						          ${data.members.map(member => `
+						            <div style="display: flex; align-items: center; margin-bottom: 8px;">
+						              <img src="${member.avatar_url}" width="28" height="28" style="border-radius: 50%; margin-right: 10px;">
+						              <span style="color: #ddd;">${member.username}</span>
+						            </div>
+						          `).join('')}
+						        </div>
+						      `;
+						    })
+						    .catch(err => {
+						      console.error('Error loading widget:', err);
+						      document.getElementById('discord-widget').innerHTML = '<span style="color: #f88;">Failed to load Discord data.</span>';
+						    });
+						</script>
                     </div>
                 </div>
             </div>
