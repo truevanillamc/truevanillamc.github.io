@@ -74,7 +74,7 @@
             90% { transform: translate(1px, 2px) rotate(0deg); }
             100% { transform: translate(1px, -2px) rotate(-1deg); }
         }
-        
+
         .shake-text:hover {
             animation: shake 0.5s infinite;
         }
@@ -82,104 +82,113 @@
 </head>
 <body style="background-image: url('https://truevanillamc.github.io/minecraftnight.png')">
 
-<!-- container -->
-<div class="container">
-    <!-- header -->
-    <div class="header">
-        <div class="logo">
-            <a href="https://truevanilla.net/"><img height="100px" width="auto" src="https://truevanillamc.github.io/truevanillalogo.png"></a>
-        </div>
-    </div>
-    
-    <!-- nav -->
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="hoverexpand"><a href="https://truevanilla.net/"><strong><em>Home</em></strong></a></li>
-		    <li class="hoverexpand"><a href="https://discord.truevanilla.net/"><strong>Discord</strong></a></li>
-                </ul>
+    <!-- container -->
+    <div class="container">
+        <!-- header -->
+        <div class="header">
+            <div class="logo">
+                <a href="https://truevanilla.net/">
+                    <img height="100px" width="auto" src="https://truevanillamc.github.io/truevanillalogo.png">
+                </a>
             </div>
         </div>
-    </nav>
-    
-    <p></p>
-    <!-- content -->
-    <div class="row">
-        <div class="col-lg-12 col-xs-12">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="col-md-9">
-                        <p><strong><span style="font-size: 24px;">Welcome to True Vanilla!</span></strong></p>
-                        <p>True Vanilla is a fully vanilla semi-anarchy Minecraft server that offers an authentic survival experience. Our goal is to provide a fair, community-driven environment where players can enjoy the game as it was meant to be played - no plugins, no pay-to-win, just pure survival.</p>
-                        <p>Our community is built on trust and cooperation. Whether you prefer to adventure alone or work together on massive builds, there’s something for everyone here. We encourage creativity, exploration, and friendly competition.</p>
-                        <p><strong><span style="font-size: 20px;">What You Can Expect:</span></strong></p>
-                        <ul>
-                            <li>100% vanilla gameplay with no modifications.</li>
-                            <li>A dedicated community of active players.</li>
-                            <li>Events to keep things exciting.</li>
-                            <li>A Discord server where you can chat with other players and stay updated.</li>
-                        </ul>
-                        <p><br>We strive to maintain a welcoming and fair environment, so make sure to read and follow the rules to ensure a great experience for everyone.</p>
-			<div class="center-button">
-			    <button class="ip-button" id="copyButton3">
-	                        <span style="font-size: 18px;" class="ip-text shake-text">COPY IP!</span>
-				<div class="copy-notification">IP Copied!</div>
-			    </button>
-		        </div>
-                    <p style="text-align: center;"><strong><br>True Vanilla is not affiliated with Minecraft, Mojang AB, or Microsoft.<br>Minecraft is © Mojang AB 2009-2025.</strong></p>
-                    </div>
-                    <div class="col-md-3">
-						<div class="panel panel-default" style="background-color: #2c2f33; color: #fff; border: none;">
-						  <div class="panel-heading" style="background-color: #23272a; color: #fff;">Who's Online (Discord)</div>
-						  <div class="panel-body" id="discord-widget" style="background-color: #2c2f33; color: #fff; padding: 10px; height: 400px;">
-						    <p>Loading Discord widget...</p>
-						  </div>
-						</div>
-						
-						<script>
-							const container = document.getElementById('discord-widget');
-							fetch('https://discord.com/api/guilds/1279143050496442469/widget.json')
-							  .then(res => res.json())
-							  .then(data => {
-						      delete data.channels;
-							    const filteredMembers = data.members.filter(member =>
-							      member.username !== "Sapphire" &&
-							      member.username !== "Blue Lightning ・Owner" &&
-							      member.username !== "DISBOARD"
-							    );
-							
-							    container.innerHTML = `
-							      <span style="color: #aaa;">${data.presence_count} online</span><br><br>
-							      <div style="max-height: 340px; overflow-y: auto; padding-right: 5px;">
-							        ${filteredMembers.map(member => `
-							          <div style="display: flex; align-items: center; margin-bottom: 8px;">
-							            <img src="${member.avatar_url}" width="28" height="28" style="border-radius: 50%; margin-right: 10px;">
-							            <span style="color: #ddd;">${member.username}</span>
-							          </div>
-							        `).join('')}
-							      </div>
-							    `;
-							  })
-							  .catch(err => {
-							    console.error('Error loading widget:', err);
-							    container.innerHTML = '<span style="color: #f88;">Failed to load Discord data.</span>';
-							  });
 
-						</script>
+        <!-- nav -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="hoverexpand">
+                            <a href="https://truevanilla.net/"><strong><em>Home</em></strong></a>
+                        </li>
+                        <li class="hoverexpand">
+                            <a href="https://discord.truevanilla.net/"><strong>Discord</strong></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- content -->
+        <div class="row">
+            <div class="col-lg-12 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-9">
+                            <p><strong><span style="font-size: 24px;">Welcome to True Vanilla!</span></strong></p>
+                            <p>True Vanilla is a fully vanilla semi-anarchy Minecraft server that offers an authentic survival experience. Our goal is to provide a fair, community-driven environment where players can enjoy the game as it was meant to be played - no plugins, no pay-to-win, just pure survival.</p>
+                            <p>Our community is built on trust and cooperation. Whether you prefer to adventure alone or work together on massive builds, there’s something for everyone here. We encourage creativity, exploration, and friendly competition.</p>
+                            <p><strong><span style="font-size: 20px;">What You Can Expect:</span></strong></p>
+                            <ul>
+                                <li>100% vanilla gameplay with no modifications.</li>
+                                <li>A dedicated community of active players.</li>
+                                <li>Events to keep things exciting.</li>
+                                <li>A Discord server where you can chat with other players and stay updated.</li>
+                            </ul>
+                            <p><br>We strive to maintain a welcoming and fair environment, so make sure to read and follow the rules to ensure a great experience for everyone.</p>
+
+                            <div class="center-button">
+                                <button class="ip-button" id="copyButton3">
+                                    <span style="font-size: 18px;" class="ip-text shake-text">COPY IP!</span>
+                                    <div class="copy-notification">IP Copied!</div>
+                                </button>
+                            </div>
+
+                            <p style="text-align: center;">
+                                <strong><br>True Vanilla is not affiliated with Minecraft, Mojang AB, or Microsoft.<br>Minecraft is © Mojang AB 2009-2025.</strong>
+                            </p>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="panel panel-default" style="background-color: #2c2f33; color: #fff; border: none;">
+                                <div class="panel-heading" style="background-color: #23272a; color: #fff;">Who's Online (Discord)</div>
+                                <div class="panel-body" id="discord-widget" style="background-color: #2c2f33; color: #fff; padding: 10px; height: 400px;">
+                                    <p>Loading Discord widget...</p>
+                                </div>
+                            </div>
+
+                            <script>
+                                const container = document.getElementById('discord-widget');
+                                fetch('https://discord.com/api/guilds/1279143050496442469/widget.json')
+                                    .then(res => res.json())
+                                    .then(data => {
+                                        delete data.channels;
+                                        const filteredMembers = data.members.filter(member =>
+                                            member.username !== "Sapphire" &&
+                                            member.username !== "Blue Lightning ・Owner" &&
+                                            member.username !== "DISBOARD"
+                                        );
+
+                                        container.innerHTML = `
+                                            <span style="color: #aaa;">${data.presence_count} online</span><br><br>
+                                            <div style="max-height: 340px; overflow-y: auto; padding-right: 5px;">
+                                                ${filteredMembers.map(member => `
+                                                    <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                                                        <img src="${member.avatar_url}" width="28" height="28" style="border-radius: 50%; margin-right: 10px;">
+                                                        <span style="color: #ddd;">${member.username}</span>
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                        `;
+                                    })
+                                    .catch(err => {
+                                        console.error('Error loading widget:', err);
+                                        container.innerHTML = '<span style="color: #f88;">Failed to load Discord data.</span>';
+                                    });
+                            </script>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
     <script>
         const copyButton3 = document.getElementById('copyButton3');
