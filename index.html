@@ -145,16 +145,11 @@
 						</div>
 						
 						<script>
-						  fetch('https://discord.com/api/guilds/1279143050496442469/widget.json')
-						    .then(res => res.json())
-						    .then(data => {
-						      delete data.channels;
-						
-						      const container = document.getElementById('discord-widget');
-							fetch('https://discord.com/api/guilds/YOUR_GUILD_ID/widget.json') // make sure this fetch is already somewhere
+							const container = document.getElementById('discord-widget');
+							fetch('https://discord.com/api/guilds/1279143050496442469/widget.json')
 							  .then(res => res.json())
 							  .then(data => {
-							    // filter out unwanted users
+						      delete data.channels;
 							    const filteredMembers = data.members.filter(member =>
 							      member.username !== "Sapphire" &&
 							      member.username !== "Blue Lightning ・Owner"
