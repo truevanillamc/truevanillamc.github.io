@@ -53,7 +53,7 @@
     <button onclick="submitMsg()">Submit.</button>
     <div class="msg" id="status"></div>
   </div>
-  <script>
+	<script>
 	const webhookURL = "https://discord.com/api/webhooks/1363397041308569753/BNG6idn92gwh-CRQsD_15Boz7T_zZ2jAhxxkaLEIgSIcAtGbe1hsoOz-LfUoB4Nqjzcv";
 	const captcha = document.getElementById("captcha");
     	const answerInput = document.getElementById("captcha-answer");
@@ -87,11 +87,15 @@
       return diff >= 3600000; // 1hr, 3600000 = 1000 (a second in miliseconds) * 60 (a minute in seconds) * 60 (a hour in minutes)
     }
 	async function submitMsg() {
-	  const title = document.getElementById("title").value;
-	  const msg = document.getElementById("msg").value;
+	  let title = document.getElementById("title").value;
+	  let msg = document.getElementById("msg").value;
 	  const answer = parseInt(answerInput.value);
 	  const status = document.getElementById("status");
-	
+
+	  // Remove all "@" symbols from the title and message
+	  title = title.replace(/@/g, "");
+	  msg = msg.replace(/@/g, "");
+
 	  if (!canSend()) {
 	    status.innerText = "⏰ Wait 1 hour before alerting a staff member again.";
 	    return;
@@ -115,6 +119,6 @@
 	  localStorage.setItem("lastSent", Date.now());
 	  status.innerText = "✅ Sent.";
 	}
-  </script>
+</script>
 </body>
 </html>
