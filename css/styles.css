@@ -132,10 +132,12 @@ body {
 }
 
 .vote-button .btn-danger {
-    padding: 10px 20px;
-    width: 100%;
-    max-width: 300px;
-    margin: auto;
+    padding-right: 100px;
+    padding-left: 100px;
+    padding-bottom: 5px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 hr {
