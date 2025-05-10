@@ -17,8 +17,9 @@
 
 .back {
     background-image: url("../img/bg-1.jpg");
-    background-size: auto;
-    background-width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
     padding-left: 100px;
     padding-right: 100px;
     width: 100%;
