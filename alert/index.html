@@ -48,6 +48,7 @@
     <h2>Send an alert.</h2>
     <input id="title" placeholder="Title" required />
     <textarea id="msg" rows="4" placeholder="Message" required></textarea>
+    <textarea id="name" rows="4" placeholder="Discord/Minecraft Name" required></textarea>
     <div id="captcha"></div>
     <input id="captcha-answer" placeholder="CAPTCHA answer" />
     <button onclick="submitMsg()">Submit.</button>
@@ -89,6 +90,7 @@
 	async function submitMsg() {
 	  let title = document.getElementById("title").value;
 	  let msg = document.getElementById("msg").value;
+	  let name = document.getElementById("name").value;
 	  const answer = parseInt(answerInput.value);
 	  const status = document.getElementById("status");
 
@@ -106,7 +108,7 @@
 	    return;
 	  }
 	
-	  const content = `**${title}**\n${msg}`;
+	  const content = `**${title}**\n${msg}\nFrom: ${name}`;
 	
 	  await fetch(webhookURL, {
 	    method: "POST",
