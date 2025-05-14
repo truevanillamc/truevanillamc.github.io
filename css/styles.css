@@ -9,6 +9,10 @@
   opacity: 0;
 }
 
+.fade-in {
+  opacity: 1;
+}
+
 .img-small {
     max-width: 50%;
     display: flex;
