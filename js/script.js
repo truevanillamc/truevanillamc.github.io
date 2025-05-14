@@ -10,5 +10,5 @@ document.addEventListener('DOMContentLoaded', () => {
       image.src = `img/img-${currentImage}.png?v=2`;
       image.classList.remove('fade-out');
     }, 1000);
-  }, 8000);
+  }, 2000);
 });
