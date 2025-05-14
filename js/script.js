@@ -5,7 +5,7 @@ setInterval(() => {
   image.classList.add('fade-out');
   setTimeout(() => {
     currentImage = (currentImage % imageCount) + 1;
-    image.src = `img/img-${currentImage}.png`;
+    image.src = `img/img-${currentImage}.png?v=2`;
     image.classList.remove('fade-out');
   }, 1000);
 }, 8000); // 15 sec
