@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const image = document.getElementById('slideshow');
-  const imageCount = 4;
+  const imageCount = 8;
   let currentImage = 1;
 
   setInterval(() => {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // After fade-out, change image and fade back in
     setTimeout(() => {
       currentImage = (currentImage % imageCount) + 1;
-      image.src = `img/img-${currentImage}.png?v=2`;
+      image.src = `img/img-${currentImage}.png?v=3`;
 
       // Force reflow to restart animation
       void image.offsetWidth;
