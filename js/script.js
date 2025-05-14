@@ -1,5 +1,5 @@
 const image = document.getElementById('slideshow');
-const imageCount = 5; // how many images you have
+const imageCount = 4; // how many img
 let currentImage = 1;
 setInterval(() => {
   image.classList.add('fade-out');
