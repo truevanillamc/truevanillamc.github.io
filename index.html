@@ -93,15 +93,16 @@ s0.parentNode.insertBefore(s1,s0);
     <div class="well">
         <div class="row wow fadeInDown">
             <div class="col-md-6 title">
-                <h2 class="btn btn-danger btn-lg">About the server</h2>
+                <h2 id="ipCopy" class="btn btn-danger btn-lg">mc.truevanilla.net</h2>
+                <div id="copy-notification" class="copy-notification centerDiv">IP Copied!</div>
                 <hr>
                 <p>True Vanilla is a fully vanilla semi-anarchy Minecraft server with an authentic survival experience. Our goal is to provide a vanilla, community-driven environment where players can enjoy the game as it was meant to be played - no /homes, no /tpa, no P2W, just pure survival.<br>
                 <br>Whether you prefer to adventure alone, fight deadly battles or work together on massive builds, there’s something for everyone here.<br>
                 <br>We strive to maintain a fair environment, so please make sure to read and follow the rules in the discord to ensure a great experience for everyone.</p>
             </div>
             <div class="col-md-6 title">
-                <h2 id="ipCopy" class="btn btn-danger btn-lg">mc.truevanilla.net</h2>
-                <div id="copy-notification" class="copy-notification centerDiv">IP Copied!</div>
+                <h2 id="ipCopyBedrock" class="btn btn-danger btn-lg">bedrock.truevanilla.net + 25588</h2>
+                <div id="copy-notificationBedrock" class="copy-notification centerDiv">IP + Port Copied!</div>
                 <hr>
                 <img id="slideshow" src="img/img-1.png?v=2" class="img-responsive">
             </div>
@@ -233,14 +234,14 @@ s0.parentNode.insertBefore(s1,s0);
                         <p>Email - TBC</p>
                         <i class="fa fa-envelope-o fa-5x" aria-hidden="true"></i>
                     </div>
-                    <div class="col-md-4 text-center">
+                    <div id="join" class="col-md-4 text-center">
                         <h2>Join our community!</h2>
                         <hr>
-                        <p>IP: mc.truevanilla.net</p>
-                        <p>BEDROCK IP: bedrock.truevanilla.net</p>
-                        <p>BEDROCK PORT: 25588</p>
-                        <p>VERSIONS: 1.20.x-1.21.x</p>
-                        <p>Java and Bedrock - Crossplay</p>
+                        <p><b>JAVA IP: mc.truevanilla.net</b></p>
+                        <p><b>BEDROCK IP: bedrock.truevanilla.net</b></p>
+                        <p><b>BEDROCK PORT: 25588</b></p>
+                        <p><b>VERSIONS: 1.19.x-1.21.x - Bedrock is updated daily</b></p>
+                        <p><b>Java and Bedrock - Crossplay</b></p>
                     </div>
                 </div>
             </div>
@@ -260,6 +261,22 @@ s0.parentNode.insertBefore(s1,s0);
     copyButton3.addEventListener('click', async function () {
         try {
             await navigator.clipboard.writeText('mc.truevanilla.net');
+            notification3.style.display = 'block';
+            setTimeout(() => {
+                notification3.style.display = 'none';
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+        }
+    });
+
+    
+    const copyButton2 = document.getElementById('ipCopyBedrock');
+    const notification2 = document.getElementById('copy-notificationBedrock');
+
+    copyButton2.addEventListener('click', async function () {
+        try {
+            await navigator.clipboard.writeText('bedrock.truevanilla.net:25588');
             notification3.style.display = 'block';
             setTimeout(() => {
                 notification3.style.display = 'none';
