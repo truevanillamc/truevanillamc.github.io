@@ -15,6 +15,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(() => {
     currentImage = (currentImage % imageCount) + 1;
     image.src = `img/img-${currentImage}.png?v=5`;
-    void image.offsetWidth; // not sure what this does, google reccommended it ¯\_(ツ)_/¯
-  }, 3000);
+  }, 2000);
 });
