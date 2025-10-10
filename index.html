@@ -71,19 +71,15 @@
     </div>
     <div class="well">
         <div class="row wow fadeInDown">
-            <div class="col-md-6 title">
+            <div class="col-md-8 col-md-offset-2 title text-center">
                 <h2 id="ipCopy" class="btn btn-danger btn-lg">mc.truevanilla.net</h2>
                 <div id="copy-notification" class="copy-notification centerDiv">Java IP Copied!</div>
                 <hr>
-                <p>True Vanilla is a fully vanilla semi-anarchy Minecraft server with an authentic survival experience. We aim to provide a vanilla, community-driven environment where players can enjoy the game as it was meant to be played - no /homes, no /tpa, no P2W, just pure survival.<br>
-                <br>Whether you prefer to adventure alone, fight deadly battles, or work together on massive builds, there's something for everyone here.<br>
-                <br>We strive to maintain a fair environment, so please read and follow the rules in the Discord to ensure a great experience for everyone.</p>
-            </div>
-            <div class="col-md-6 title">
-                <h2 id="ipCopyBedrock" class="btn btn-danger btn-lg">bedrock.truevanilla.net:25588</h2>
-                <div id="copy-notificationBedrock" class="copy-notification centerDiv">Bedrock IP + Port Copied!</div>
+                <p>True Vanilla is a fully vanilla semi-anarchy Minecraft server with an authentic survival experience. We aim to provide a vanilla, community-driven environment where players can enjoy the game as it was meant to be played - no /homes, no /tpa, no P2W, just pure survival.</p>
+                <p>Whether you prefer to adventure alone, fight deadly battles, or work together on massive builds, there's something for everyone here.</p>
+                <p>We strive to maintain a fair environment, so please read and follow the rules in the Discord to ensure a great experience for everyone.</p>
                 <hr>
-                <img id="slideshow" src="img/img-1.png?v=2" class="img-responsive">
+                <img id="slideshow" src="img/img-1.png?v=2" class="img-responsive center-block" style="margin-top:15px;">
             </div>
         </div>
     </div>
@@ -193,38 +189,26 @@
 </footer>
 <!-- The End of Footer -->
 
-<!-- Scripts (Meh)-->
+<!-- Scripts (Meh)--> 
 <script type="text/javascript">
     const copyButton3 = document.getElementById('ipCopy');
     const notification3 = document.getElementById('copy-notification');
 
-    copyButton3.addEventListener('click', async function () {
-        try {
-            await navigator.clipboard.writeText('mc.truevanilla.net');
-            notification3.style.display = 'block';
-            setTimeout(() => {
-                notification3.style.display = 'none';
-            }, 2000);
-        } catch (err) {
-            console.error('Failed to copy: ', err);
-        }
-    });
-
-    
-    const copyButton2 = document.getElementById('ipCopyBedrock');
-    const notification2 = document.getElementById('copy-notificationBedrock');
-
-    copyButton2.addEventListener('click', async function () {
-        try {
-            await navigator.clipboard.writeText('bedrock.truevanilla.net:25588');
-            notification2.style.display = 'block';
-            setTimeout(() => {
-                notification2.style.display = 'none';
-            }, 2000);
-        } catch (err) {
-            console.error('Failed to copy: ', err);
-        }
-    });
+    if (copyButton3) {
+        copyButton3.addEventListener('click', async function () {
+            try {
+                await navigator.clipboard.writeText('mc.truevanilla.net');
+                if (notification3) {
+                    notification3.style.display = 'block';
+                    setTimeout(() => {
+                        notification3.style.display = 'none';
+                    }, 2000);
+                }
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+            }
+        });
+    }
 </script>
 
 </body>
