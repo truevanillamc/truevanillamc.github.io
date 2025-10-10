@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const image = document.getElementById('slideshow');
-  const imageCount = 8;
+  const imageCount = 9;
   
   // to preload all images
   for (let i = 1; i <= imageCount; i++) {
