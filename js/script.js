@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     img.src = `img/img-${i}.png?v=5`;
   }
   
-  let currentImage = Math.floor(Math.random() * imageCount) + 1;
+  let currentImage = Math.floor(Math.random() * (imageCount - 1)) + 1;
 
   image.src = `img/img-${currentImage}.png?v=5`;
 
