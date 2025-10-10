@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // to preload all images
   for (let i = 1; i <= imageCount; i++) {
     const img = new Image();
-    img.src = `img/img-${i}.png?v=3`;
+    img.src = `img/img-${i}.png?v=5`;
   }
   
   let currentImage = Math.floor(Math.random() * imageCount) + 1;
@@ -16,5 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
     currentImage = (currentImage % imageCount) + 1;
     image.src = `img/img-${currentImage}.png?v=5`;
     void image.offsetWidth; // not sure what this does, google reccommended it ¯\_(ツ)_/¯
-  }, 4000);
+  }, 3000);
 });
