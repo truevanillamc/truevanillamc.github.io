@@ -199,3 +199,13 @@ hr {
     padding-bottom: 85px;
   }
 }
+
+.btn-container {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+}
+
+.trailer {
+    border: none;
+}

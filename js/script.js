@@ -11,9 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentImage = Math.floor(Math.random() * (imageCount - 1)) + 1;
 
   image.src = `img/img-${currentImage}.png?v=5`;
+  image.style.width = "1100px";
 
   setInterval(() => {
     currentImage = (currentImage % imageCount) + 1;
     image.src = `img/img-${currentImage}.png?v=5`;
-  }, 2000);
+    image.style.width = "1100px";
+  }, 5000);
 });
