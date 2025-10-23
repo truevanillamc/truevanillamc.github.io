@@ -209,3 +209,8 @@ hr {
 .trailer {
     border: none;
 }
+
+.server-title {
+    font-weight: bold;
+    font-size: larger;
+}
