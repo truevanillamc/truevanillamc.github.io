@@ -208,6 +208,7 @@ hr {
 
 .trailer {
     border: none;
+    max-width: 100%;
 }
 
 .server-title {
