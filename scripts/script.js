@@ -2,20 +2,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const image = document.getElementById('slideshow');
   const imageCount = 9;
   
-  // to preload all images
   for (let i = 1; i <= imageCount; i++) {
     const img = new Image();
-    img.src = `img/img-${i}.png?v=5`;
+    img.src = `media/img-${i}.png?v=5`;
   }
   
   let currentImage = Math.floor(Math.random() * (imageCount - 1)) + 1;
-
-  image.src = `img/img-${currentImage}.png?v=5`;
+  
+  image.src = `media/img-${currentImage}.png?v=5`;
   image.style.width = "1100px";
-
+  
   setInterval(() => {
     currentImage = (currentImage % imageCount) + 1;
-    image.src = `img/img-${currentImage}.png?v=5`;
+    image.src = `media/img-${currentImage}.png?v=5`;
     image.style.width = "1100px";
   }, 5000);
 });

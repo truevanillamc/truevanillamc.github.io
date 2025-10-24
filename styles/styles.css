@@ -9,10 +9,10 @@
 }
 
 .center-flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .back {
@@ -173,37 +173,37 @@ hr {
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .back {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .vote-center {
-    transform: none;
-  }
-
-  .p-1 img {
-    width: 90%;
-  }
-
-  .img-small {
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    padding-bottom: 85px;
-  }
+    .navbar {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .back {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .vote-center {
+        transform: none;
+    }
+    
+    .p-1 img {
+        width: 90%;
+    }
+    
+    .img-small {
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        padding-bottom: 85px;
+    }
 }
 
 .btn-container {
-  position: fixed;
-  bottom: 30px;
-  left: 30px;
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
 }
 
 .trailer {
