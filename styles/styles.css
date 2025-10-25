@@ -16,7 +16,7 @@
 }
 
 .back {
-    background-image: url("../img/bg-1.jpg");
+    background-image: url("../media/bg-1.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;
@@ -165,6 +165,7 @@ hr {
 .footer-down {
     padding-top: 10px;
     background-color: #042037;
+    margin-top: auto;
 }
 
 .footer-up {

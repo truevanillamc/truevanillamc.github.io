@@ -58,22 +58,19 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="..data/gallery.json"></script>
     <script>
-        const galleryItems = [
-            { 
-                image: '../media/img-1.png',
-                description: 'Welcome to True Vanilla! A beautiful spawn area awaits new players.'
-            },
-            {
-                image: '../media/bg-1.jpg',
-                description: 'Explore vast landscapes and build amazing structures with the community.'
-            },
-            {
-                image: '../media/slogo.png',
-                description: 'Join the True Vanilla community - pure survival as it was meant to be.'
-            }
-        ];
+        const galleryData = [];
+
+        fetch('../data/gallery.json')
+            .then(response => response.json())
+            .then(data => galleryData = data)
+            .catch(error => {
+                console.error('Error loading gallery JSON:', error);
+                document.querySelector(".p-4").innerHTML = `<div class="well">
+                        <h1 class="text-center">Gallery</h1>
+                        <p class="text-center">Unable to load gallery images. Please try again later. Check the console for more information.</p>
+                    </div>`;
+            });
 
         let currentIndex = 0;
         const imageElement = document.querySelector('.gallery-image');
