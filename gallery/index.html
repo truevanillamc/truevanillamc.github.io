@@ -62,7 +62,7 @@
     <script>
         let galleryData = [];
 
-        fetch('..data/gallery.json')
+        fetch('../data/gallery.json')
             .then(response => response.json())
             .then(data => galleryData = data)
             .catch(error => {
