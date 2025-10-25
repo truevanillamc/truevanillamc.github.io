@@ -40,8 +40,12 @@
     left: 50%;
     transform: translateX(-50%);
     color: white;
-    z-index: 10;
+    z-index: 100;
     white-space: nowrap;
+}
+
+html, body {
+    height: 100%;
 }
 
 body {
@@ -166,6 +170,7 @@ hr {
     padding-top: 10px;
     background-color: #042037;
     margin-top: auto;
+    margin-bottom: 0;
 }
 
 .footer-up {

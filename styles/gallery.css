@@ -73,3 +73,7 @@
     border-radius: 4px;
     z-index: 2;
 }
+
+html, body {
+    height: 100%;
+}
