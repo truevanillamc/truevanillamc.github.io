@@ -1,14 +1,32 @@
 [
     { 
-        "image": "../media/img-1.png",
-        "description": "Welcome to True Vanilla! A beautiful spawn area awaits new players."
+        "image": "../media/img-1.png"
     },
     {
-        "image": "../media/bg-1.jpg",
-        "description": "Explore vast landscapes and build amazing structures with the community."
+        "image": "../media/img-2.jpg"
     },
     {
-        "image": "../media/slogo.png",
-        "description": "Join the True Vanilla community - pure survival as it was meant to be."
+        "image": "../media/img-3.jpg"
+    },
+    {
+        "image": "../media/img-4.jpg"
+    },
+    {
+        "image": "../media/img-5.jpg"
+    },
+    {
+        "image": "../media/img-6.jpg"
+    },
+    {
+        "image": "../media/img-7.jpg"
+    },
+    {
+        "image": "../media/img-8.jpg"
+    },
+    {
+        "image": "../media/img-9.jpg"
+    },
+    {
+        "image": "../media/bg-1.jpg"
     }
 ]

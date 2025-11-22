@@ -83,7 +83,11 @@
         function updateGallery() {
             const item = galleryData[currentIndex];
             imageElement.src = item.image;
-            descriptionElement.textContent = item.description;
+            if (!item.description) {
+                descriptionElement.style.display = 'none';
+            } else {
+                descriptionElement.textContent = item.description;
+            }
             counterElement.textContent = `${currentIndex + 1} / ${galleryData.length}`;
         }
 
@@ -105,7 +109,7 @@
             }
         });
 
-        document.onload = updateGallery();
+        document.addEventListener('DOMContentLoaded', updateGallery());
     </script>
 </body>
 </html>
