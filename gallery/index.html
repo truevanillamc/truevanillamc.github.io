@@ -64,14 +64,18 @@
 
         fetch('../data/gallery.json')
             .then(response => response.json())
-            .then(data => galleryData = data)
+            .then(data => {
+                galleryData = data;
+                updateGallery();
+            })
             .catch(error => {
                 console.error('Error loading gallery JSON:', error);
                 document.querySelector(".p-4").innerHTML = `<div class="well">
-                        <h1 class="text-center">Gallery</h1>
-                        <p class="text-center">Unable to load gallery images. Please try again later. Check the console for more information.</p>
-                    </div>`;
+                    <h1 class="text-center">Gallery</h1>
+                    <p class="text-center">Unable to load gallery images. Please try again later. Check the console for more information.</p>
+                </div>`;
             });
+
         
         let currentIndex = 0;
         const imageElement = document.querySelector('.gallery-image');
@@ -109,8 +113,6 @@
                 nextButton.click();
             }
         });
-
-        imageElement.onload = updateGallery;
     </script>
 </body>
 </html>
