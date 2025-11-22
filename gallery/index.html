@@ -41,7 +41,7 @@
         <div class="gallery-container">
             <div class="gallery-counter"></div>
             <div class="gallery-image-container">
-                <img src="../media/img-1.png" alt="Gallery Image" onload="updateGallery()" class="gallery-image">
+                <img src="../media/img-1.png" alt="Gallery Image" class="gallery-image">
                 <div class="gallery-description"></div>
             </div>
             <button class="gallery-nav gallery-prev">
@@ -82,6 +82,7 @@
 
         function updateGallery() {
             const item = galleryData[currentIndex];
+            imageElement.alt = item.description || `Image ${currentIndex + 1}/${galleryData.length}`;
             imageElement.src = item.image;
             if (!item.description) {
                 descriptionElement.style.display = 'none';
@@ -109,7 +110,7 @@
             }
         });
 
-        document.addEventListener('DOMContentLoaded', updateGallery());
+        imageElement.onload = updateGallery;
     </script>
 </body>
 </html>
